@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7a6084cc-51cd-45dd-9a0d-0be9442d2fa1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SolucionesCodigoFuente.wsdl" MetadataType="Wsdl" ID="0d77fa03-5752-4c62-a095-35a205013f1a" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?wsdl" />
+    <MetadataFile FileName="SolucionesCodigoFuente.xsd" MetadataType="Schema" ID="70554a4c-0aaf-4755-bdfb-8e161a581bd7" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd11" />
+    <MetadataFile FileName="SolucionesCodigoFuente1.xsd" MetadataType="Schema" ID="c1a0f8f7-9043-4f0f-a129-9a7dd1a45a84" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd1" />
+    <MetadataFile FileName="SolucionesCodigoFuente2.xsd" MetadataType="Schema" ID="3999fd38-1e28-4198-b32d-d626e0d3d277" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd0" />
+    <MetadataFile FileName="SolucionesCodigoFuente3.xsd" MetadataType="Schema" ID="4409fbd3-61a7-4de1-b5af-2448addb598b" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd3" />
+    <MetadataFile FileName="SolucionesCodigoFuente4.xsd" MetadataType="Schema" ID="eed4a17f-111e-4f5f-ae44-4b2dd9ad218a" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd2" />
+    <MetadataFile FileName="SolucionesCodigoFuente5.xsd" MetadataType="Schema" ID="33d2a39a-5172-4c82-ab0f-53bbfffcec59" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd5" />
+    <MetadataFile FileName="SolucionesCodigoFuente6.xsd" MetadataType="Schema" ID="44fd482d-156a-455b-a886-0a5b94b6c80e" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd4" />
+    <MetadataFile FileName="SolucionesCodigoFuente7.xsd" MetadataType="Schema" ID="87f69864-3177-4180-bdc3-12eb37e43940" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd7" />
+    <MetadataFile FileName="SolucionesCodigoFuente8.xsd" MetadataType="Schema" ID="fa712661-aff3-4fa3-92d8-2c2544abc78d" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd6" />
+    <MetadataFile FileName="SolucionesCodigoFuente9.xsd" MetadataType="Schema" ID="0d628ff2-7c94-4648-b1a9-60cbaead714a" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd10" />
+    <MetadataFile FileName="SolucionesCodigoFuente.disco" MetadataType="Disco" ID="b713d417-5021-414e-b715-ae8f93d7813a" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?disco" />
+    <MetadataFile FileName="SolucionesCodigoFuente10.xsd" MetadataType="Schema" ID="76561f9d-cb60-44d1-b8f9-db37b92d852b" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd9" />
+    <MetadataFile FileName="SolucionesCodigoFuente11.xsd" MetadataType="Schema" ID="f026c667-689b-4046-85c7-d1dc8723a851" SourceId="1" SourceUrl="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

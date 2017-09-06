@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Bitacoras" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Bitacoras" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/Bitacoras.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC" />
+  <xs:complexType name="Bitacora">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdSolucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MasInformacionExcepcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC" minOccurs="0" name="Tipo" type="q1:Componentes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bitacora" nillable="true" type="tns:Bitacora" />
+</xs:schema>

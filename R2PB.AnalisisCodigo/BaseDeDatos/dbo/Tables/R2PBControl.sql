@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[R2PBControl](
+	[IdControl] [int] IDENTITY(1,1) NOT NULL,
+	[IdMetodo] [int] NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Tipo] [int]NOT NULL,
+	[LineaComienzo] [int]NOT NULL,
+	[LineaFinal] [int]NOT NULL,
+ CONSTRAINT [PK_R2PBControl] PRIMARY KEY CLUSTERED 
+(
+	[IdControl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[R2PBControl]  WITH CHECK ADD  CONSTRAINT [FK_R2PBControlo_R2PBMetodo] FOREIGN KEY([IdMetodo])
+REFERENCES [dbo].[R2PBMetodo] ([IdMetodo])

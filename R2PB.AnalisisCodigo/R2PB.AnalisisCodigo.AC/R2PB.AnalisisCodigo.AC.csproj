@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\rpineda\Desktop\R2PB.AnalisisCodigo.AC.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{71D287B6-ACF3-4387-A7A6-0215F4E74DBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>R2PB.AnalisisCodigo.AC</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>R2PB.AnalisisCodigo.AC</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp" />
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces" />
+    <Reference Include="Microsoft.CodeAnalysis" />
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces.Desktop" />
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bitacoras\Bitacoras.Registrador.cs" />
+    <Compile Include="Service References\Bitacoras\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClienteAnalisis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Usings\Usings.Constructor.cs" />
+    <Compile Include="SolucionesCodigoFuente\SolucionesCodigoFuente.Almacenador.cs" />
+    <Compile Include="SolucionesCodigoFuente\SolucionesCodigoFuente.Analizador.cs" />
+    <Compile Include="Proyectos\Proyectos.Constructor.cs" />
+    <Compile Include="Proyectos\Proyectos.Consultante.cs" />
+    <Compile Include="Propiedades\Propiedades.Convertidor.cs" />
+    <Compile Include="Propiedades\Propiedades.Constructor.cs" />
+    <Compile Include="Paquetes\Paquetes.Constructor.cs" />
+    <Compile Include="NameSpaces\NameSpaces.Constructor.cs" />
+    <Compile Include="Metodos\Metodos.Constructor.cs" />
+    <Compile Include="Metodos\Metodos.Convertidor.cs" />
+    <Compile Include="Metodos\Metodos.Parametros.Constructor.cs" />
+    <Compile Include="Metodos\Metodo.Controles.Constructor.cs" />
+    <Compile Include="Herencias\Herencias.Constructor.cs" />
+    <Compile Include="Clases\Clases.Constructor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bitacoras\Bitacoras.wsdl" />
+    <None Include="Service References\Bitacoras\Bitacoras.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bitacoras\Bitacoras1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bitacoras\Bitacoras2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bitacoras\Bitacoras3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente.wsdl" />
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R2PB.AnalisisCodigo.BC\R2PB.AnalisisCodigo.BC.csproj">
+      <Project>{6b591477-7cc8-4082-8874-b06ecccbbe39}</Project>
+      <Name>R2PB.AnalisisCodigo.BC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Bitacoras\" />
+    <WCFMetadataStorage Include="Service References\ClienteAnalisis\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClienteAnalisis\SolucionesCodigoFuente.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClienteAnalisis\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClienteAnalisis\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClienteAnalisis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Bitacoras\Bitacoras.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Bitacoras\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Bitacoras\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Bitacoras\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

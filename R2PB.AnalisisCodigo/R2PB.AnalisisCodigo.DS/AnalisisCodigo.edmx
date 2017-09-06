@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AnalisisCodigoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="R2PBBitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSolucion" Type="varchar" MaxLength="2500" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="InformacionExepcion" Type="nvarchar(max)" />
+          <Property Name="Mensaje" Type="nvarchar(max)" />
+          <Property Name="Componente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBClase">
+          <Key>
+            <PropertyRef Name="IdClase" />
+          </Key>
+          <Property Name="IdClase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="Visibilidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Tipo" Type="smallint" Nullable="false" />
+          <Property Name="NameSpace" Type="varchar" MaxLength="2500" />
+          <Property Name="LineaComienzo" Type="int" Nullable="false" />
+          <Property Name="LineaFinal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBControl">
+          <Key>
+            <PropertyRef Name="IdControl" />
+          </Key>
+          <Property Name="IdControl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMetodo" Type="int" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="LineaComienzo" Type="int" Nullable="false" />
+          <Property Name="LineaFinal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBHerencia">
+          <Key>
+            <PropertyRef Name="IdHerencia" />
+          </Key>
+          <Property Name="IdHerencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="HerenciaDeclarada" Type="varchar" MaxLength="2500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBMetodo">
+          <Key>
+            <PropertyRef Name="IdMetodo" />
+          </Key>
+          <Property Name="IdMetodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="Visibilidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Retorno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LineaComienzo" Type="int" Nullable="false" />
+          <Property Name="LineaFinal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBPaquete">
+          <Key>
+            <PropertyRef Name="IdPaquete" />
+          </Key>
+          <Property Name="IdPaquete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePaquete" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="IdentificadorPaquete" Type="varchar" MaxLength="2500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBParametro">
+          <Key>
+            <PropertyRef Name="IdParametro" />
+          </Key>
+          <Property Name="IdParametro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMetodo" Type="int" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="Estatico" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBParametroModificador">
+          <Key>
+            <PropertyRef Name="IdModificador" />
+          </Key>
+          <Property Name="IdModificador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdParametro" Type="int" Nullable="false" />
+          <Property Name="Modificador" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBPropiedad">
+          <Key>
+            <PropertyRef Name="IdPropiedad" />
+          </Key>
+          <Property Name="IdPropiedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="Visibilidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="Estatico" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBProyecto">
+          <Key>
+            <PropertyRef Name="IdProyecto" />
+          </Key>
+          <Property Name="IdProyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="NombreProyecto" Type="varchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Lenguaje" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdentificadorProyecto" Type="varchar" MaxLength="2500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBRepositorio">
+          <Key>
+            <PropertyRef Name="IdRepositorio" />
+          </Key>
+          <Property Name="IdRepositorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" />
+          <Property Name="NombreRepositorio" Type="varchar" MaxLength="2500" />
+          <Property Name="NombreAutorRepositorio" Type="varchar" MaxLength="2500" />
+          <Property Name="AutorCommit" Type="varchar" MaxLength="2500" />
+          <Property Name="Año" Type="int" Nullable="false" />
+          <Property Name="Mes" Type="int" Nullable="false" />
+          <Property Name="Dia" Type="int" Nullable="false" />
+          <Property Name="Hora" Type="int" Nullable="false" />
+          <Property Name="Segundo" Type="int" Nullable="false" />
+          <Property Name="Minuto" Type="int" Nullable="false" />
+          <Property Name="FechaCompleta" Type="datetime" Nullable="false" />
+          <Property Name="Hash" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="R2PBUsing">
+          <Key>
+            <PropertyRef Name="IdUsing" />
+          </Key>
+          <Property Name="IdUsing" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="IdProyecto" Type="int" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="UsingDeclarado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_R2PBClase_R2PBProyecto">
+          <End Role="R2PBProyecto" Type="Self.R2PBProyecto" Multiplicity="1" />
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Principal>
+            <Dependent Role="R2PBClase">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBControlo_R2PBMetodo">
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="1" />
+          <End Role="R2PBControl" Type="Self.R2PBControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBMetodo">
+              <PropertyRef Name="IdMetodo" />
+            </Principal>
+            <Dependent Role="R2PBControl">
+              <PropertyRef Name="IdMetodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBHerencia_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBHerencia" Type="Self.R2PBHerencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBHerencia">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBMetodo_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBMetodo">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBParametro_R2PBMetodo">
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="1" />
+          <End Role="R2PBParametro" Type="Self.R2PBParametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBMetodo">
+              <PropertyRef Name="IdMetodo" />
+            </Principal>
+            <Dependent Role="R2PBParametro">
+              <PropertyRef Name="IdMetodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBParametroModificador_R2PBParametro">
+          <End Role="R2PBParametro" Type="Self.R2PBParametro" Multiplicity="1" />
+          <End Role="R2PBParametroModificador" Type="Self.R2PBParametroModificador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBParametro">
+              <PropertyRef Name="IdParametro" />
+            </Principal>
+            <Dependent Role="R2PBParametroModificador">
+              <PropertyRef Name="IdParametro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBPropiedad_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBPropiedad" Type="Self.R2PBPropiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBPropiedad">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBProyecto_R2PBPaquete">
+          <End Role="R2PBPaquete" Type="Self.R2PBPaquete" Multiplicity="1" />
+          <End Role="R2PBProyecto" Type="Self.R2PBProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBPaquete">
+              <PropertyRef Name="IdPaquete" />
+            </Principal>
+            <Dependent Role="R2PBProyecto">
+              <PropertyRef Name="IdPaquete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBUsing_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBUsing" Type="Self.R2PBUsing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBUsing">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnalisisCodigoModelStoreContainer">
+          <EntitySet Name="R2PBBitacora" EntityType="Self.R2PBBitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBClase" EntityType="Self.R2PBClase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBControl" EntityType="Self.R2PBControl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBHerencia" EntityType="Self.R2PBHerencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBMetodo" EntityType="Self.R2PBMetodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBPaquete" EntityType="Self.R2PBPaquete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBParametro" EntityType="Self.R2PBParametro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBParametroModificador" EntityType="Self.R2PBParametroModificador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBPropiedad" EntityType="Self.R2PBPropiedad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBProyecto" EntityType="Self.R2PBProyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBRepositorio" EntityType="Self.R2PBRepositorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="R2PBUsing" EntityType="Self.R2PBUsing" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_R2PBClase_R2PBProyecto" Association="Self.FK_R2PBClase_R2PBProyecto">
+            <End Role="R2PBProyecto" EntitySet="R2PBProyecto" />
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBControlo_R2PBMetodo" Association="Self.FK_R2PBControlo_R2PBMetodo">
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+            <End Role="R2PBControl" EntitySet="R2PBControl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBHerencia_R2PBClase" Association="Self.FK_R2PBHerencia_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBHerencia" EntitySet="R2PBHerencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBMetodo_R2PBClase" Association="Self.FK_R2PBMetodo_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBParametro_R2PBMetodo" Association="Self.FK_R2PBParametro_R2PBMetodo">
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+            <End Role="R2PBParametro" EntitySet="R2PBParametro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBParametroModificador_R2PBParametro" Association="Self.FK_R2PBParametroModificador_R2PBParametro">
+            <End Role="R2PBParametro" EntitySet="R2PBParametro" />
+            <End Role="R2PBParametroModificador" EntitySet="R2PBParametroModificador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBPropiedad_R2PBClase" Association="Self.FK_R2PBPropiedad_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBPropiedad" EntitySet="R2PBPropiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBProyecto_R2PBPaquete" Association="Self.FK_R2PBProyecto_R2PBPaquete">
+            <End Role="R2PBPaquete" EntitySet="R2PBPaquete" />
+            <End Role="R2PBProyecto" EntitySet="R2PBProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBUsing_R2PBClase" Association="Self.FK_R2PBUsing_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBUsing" EntitySet="R2PBUsing" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnalisisCodigoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="R2PBClase">
+          <Key>
+            <PropertyRef Name="IdClase" />
+          </Key>
+          <Property Name="IdClase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="Visibilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="Int16" Nullable="false" />
+          <Property Name="NameSpace" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="R2PBProyecto" Relationship="Self.FK_R2PBClase_R2PBProyecto" FromRole="R2PBClase" ToRole="R2PBProyecto" />
+          <NavigationProperty Name="R2PBHerencia" Relationship="Self.FK_R2PBHerencia_R2PBClase" FromRole="R2PBClase" ToRole="R2PBHerencia" />
+          <NavigationProperty Name="R2PBMetodo" Relationship="Self.FK_R2PBMetodo_R2PBClase" FromRole="R2PBClase" ToRole="R2PBMetodo" />
+          <NavigationProperty Name="R2PBPropiedad" Relationship="Self.FK_R2PBPropiedad_R2PBClase" FromRole="R2PBClase" ToRole="R2PBPropiedad" />
+          <NavigationProperty Name="R2PBUsing" Relationship="Self.FK_R2PBUsing_R2PBClase" FromRole="R2PBClase" ToRole="R2PBUsing" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+          <Property Name="LineaComienzo" Type="Int32" Nullable="false" />
+          <Property Name="LineaFinal" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBControl">
+          <Key>
+            <PropertyRef Name="IdControl" />
+          </Key>
+          <Property Name="IdControl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMetodo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="LineaComienzo" Type="Int32" Nullable="false" />
+          <Property Name="LineaFinal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="R2PBMetodo" Relationship="Self.FK_R2PBControlo_R2PBMetodo" FromRole="R2PBControl" ToRole="R2PBMetodo" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBHerencia">
+          <Key>
+            <PropertyRef Name="IdHerencia" />
+          </Key>
+          <Property Name="IdHerencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+          <Property Name="HerenciaDeclarada" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBClase" Relationship="Self.FK_R2PBHerencia_R2PBClase" FromRole="R2PBHerencia" ToRole="R2PBClase" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBMetodo">
+          <Key>
+            <PropertyRef Name="IdMetodo" />
+          </Key>
+          <Property Name="IdMetodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+          <Property Name="Visibilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Retorno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBClase" Relationship="Self.FK_R2PBMetodo_R2PBClase" FromRole="R2PBMetodo" ToRole="R2PBClase" />
+          <NavigationProperty Name="R2PBControl" Relationship="Self.FK_R2PBControlo_R2PBMetodo" FromRole="R2PBMetodo" ToRole="R2PBControl" />
+          <NavigationProperty Name="R2PBParametro" Relationship="Self.FK_R2PBParametro_R2PBMetodo" FromRole="R2PBMetodo" ToRole="R2PBParametro" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+          <Property Name="LineaComienzo" Type="Int32" Nullable="false" />
+          <Property Name="LineaFinal" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBPaquete">
+          <Key>
+            <PropertyRef Name="IdPaquete" />
+          </Key>
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePaquete" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdentificadorPaquete" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBProyecto" Relationship="Self.FK_R2PBProyecto_R2PBPaquete" FromRole="R2PBPaquete" ToRole="R2PBProyecto" />
+        </EntityType>
+        <EntityType Name="R2PBParametro">
+          <Key>
+            <PropertyRef Name="IdParametro" />
+          </Key>
+          <Property Name="IdParametro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMetodo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatico" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="R2PBMetodo" Relationship="Self.FK_R2PBParametro_R2PBMetodo" FromRole="R2PBParametro" ToRole="R2PBMetodo" />
+          <NavigationProperty Name="R2PBParametroModificador" Relationship="Self.FK_R2PBParametroModificador_R2PBParametro" FromRole="R2PBParametro" ToRole="R2PBParametroModificador" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBParametroModificador">
+          <Key>
+            <PropertyRef Name="IdModificador" />
+          </Key>
+          <Property Name="IdModificador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdParametro" Type="Int32" Nullable="false" />
+          <Property Name="Modificador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBParametro" Relationship="Self.FK_R2PBParametroModificador_R2PBParametro" FromRole="R2PBParametroModificador" ToRole="R2PBParametro" />
+        </EntityType>
+        <EntityType Name="R2PBPropiedad">
+          <Key>
+            <PropertyRef Name="IdPropiedad" />
+          </Key>
+          <Property Name="IdPropiedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+          <Property Name="Visibilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estatico" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="R2PBClase" Relationship="Self.FK_R2PBPropiedad_R2PBClase" FromRole="R2PBPropiedad" ToRole="R2PBClase" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="R2PBProyecto">
+          <Key>
+            <PropertyRef Name="IdProyecto" />
+          </Key>
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+          <Property Name="NombreProyecto" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lenguaje" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdentificadorProyecto" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBClase" Relationship="Self.FK_R2PBClase_R2PBProyecto" FromRole="R2PBProyecto" ToRole="R2PBClase" />
+          <NavigationProperty Name="R2PBPaquete" Relationship="Self.FK_R2PBProyecto_R2PBPaquete" FromRole="R2PBProyecto" ToRole="R2PBPaquete" />
+        </EntityType>
+        <EntityType Name="R2PBUsing">
+          <Key>
+            <PropertyRef Name="IdUsing" />
+          </Key>
+          <Property Name="IdUsing" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+          <Property Name="UsingDeclarado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="R2PBClase" Relationship="Self.FK_R2PBUsing_R2PBClase" FromRole="R2PBUsing" ToRole="R2PBClase" />
+          <Property Name="IdProyecto" Type="Int32" Nullable="false" />
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_R2PBClase_R2PBProyecto">
+          <End Role="R2PBProyecto" Type="Self.R2PBProyecto" Multiplicity="1" />
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBProyecto">
+              <PropertyRef Name="IdProyecto" />
+            </Principal>
+            <Dependent Role="R2PBClase">
+              <PropertyRef Name="IdProyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBHerencia_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBHerencia" Type="Self.R2PBHerencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBHerencia">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBMetodo_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBMetodo">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBPropiedad_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBPropiedad" Type="Self.R2PBPropiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBPropiedad">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBUsing_R2PBClase">
+          <End Role="R2PBClase" Type="Self.R2PBClase" Multiplicity="1" />
+          <End Role="R2PBUsing" Type="Self.R2PBUsing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBClase">
+              <PropertyRef Name="IdClase" />
+            </Principal>
+            <Dependent Role="R2PBUsing">
+              <PropertyRef Name="IdClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBControlo_R2PBMetodo">
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="1" />
+          <End Role="R2PBControl" Type="Self.R2PBControl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBMetodo">
+              <PropertyRef Name="IdMetodo" />
+            </Principal>
+            <Dependent Role="R2PBControl">
+              <PropertyRef Name="IdMetodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBParametro_R2PBMetodo">
+          <End Role="R2PBMetodo" Type="Self.R2PBMetodo" Multiplicity="1" />
+          <End Role="R2PBParametro" Type="Self.R2PBParametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBMetodo">
+              <PropertyRef Name="IdMetodo" />
+            </Principal>
+            <Dependent Role="R2PBParametro">
+              <PropertyRef Name="IdMetodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBProyecto_R2PBPaquete">
+          <End Role="R2PBPaquete" Type="Self.R2PBPaquete" Multiplicity="1" />
+          <End Role="R2PBProyecto" Type="Self.R2PBProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBPaquete">
+              <PropertyRef Name="IdPaquete" />
+            </Principal>
+            <Dependent Role="R2PBProyecto">
+              <PropertyRef Name="IdPaquete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_R2PBParametroModificador_R2PBParametro">
+          <End Role="R2PBParametro" Type="Self.R2PBParametro" Multiplicity="1" />
+          <End Role="R2PBParametroModificador" Type="Self.R2PBParametroModificador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="R2PBParametro">
+              <PropertyRef Name="IdParametro" />
+            </Principal>
+            <Dependent Role="R2PBParametroModificador">
+              <PropertyRef Name="IdParametro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnalisisCodigoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="R2PBClase" EntityType="Self.R2PBClase" />
+          <EntitySet Name="R2PBControl" EntityType="Self.R2PBControl" />
+          <EntitySet Name="R2PBHerencia" EntityType="Self.R2PBHerencia" />
+          <EntitySet Name="R2PBMetodo" EntityType="Self.R2PBMetodo" />
+          <EntitySet Name="R2PBPaquete" EntityType="Self.R2PBPaquete" />
+          <EntitySet Name="R2PBParametro" EntityType="Self.R2PBParametro" />
+          <EntitySet Name="R2PBParametroModificador" EntityType="Self.R2PBParametroModificador" />
+          <EntitySet Name="R2PBPropiedad" EntityType="Self.R2PBPropiedad" />
+          <EntitySet Name="R2PBProyecto" EntityType="Self.R2PBProyecto" />
+          <EntitySet Name="R2PBUsing" EntityType="Self.R2PBUsing" />
+          <AssociationSet Name="FK_R2PBClase_R2PBProyecto" Association="Self.FK_R2PBClase_R2PBProyecto">
+            <End Role="R2PBProyecto" EntitySet="R2PBProyecto" />
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBHerencia_R2PBClase" Association="Self.FK_R2PBHerencia_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBHerencia" EntitySet="R2PBHerencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBMetodo_R2PBClase" Association="Self.FK_R2PBMetodo_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBPropiedad_R2PBClase" Association="Self.FK_R2PBPropiedad_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBPropiedad" EntitySet="R2PBPropiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBUsing_R2PBClase" Association="Self.FK_R2PBUsing_R2PBClase">
+            <End Role="R2PBClase" EntitySet="R2PBClase" />
+            <End Role="R2PBUsing" EntitySet="R2PBUsing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBControlo_R2PBMetodo" Association="Self.FK_R2PBControlo_R2PBMetodo">
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+            <End Role="R2PBControl" EntitySet="R2PBControl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBParametro_R2PBMetodo" Association="Self.FK_R2PBParametro_R2PBMetodo">
+            <End Role="R2PBMetodo" EntitySet="R2PBMetodo" />
+            <End Role="R2PBParametro" EntitySet="R2PBParametro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBProyecto_R2PBPaquete" Association="Self.FK_R2PBProyecto_R2PBPaquete">
+            <End Role="R2PBPaquete" EntitySet="R2PBPaquete" />
+            <End Role="R2PBProyecto" EntitySet="R2PBProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_R2PBParametroModificador_R2PBParametro" Association="Self.FK_R2PBParametroModificador_R2PBParametro">
+            <End Role="R2PBParametro" EntitySet="R2PBParametro" />
+            <End Role="R2PBParametroModificador" EntitySet="R2PBParametroModificador" />
+          </AssociationSet>
+          <EntitySet Name="R2PBBitacora" EntityType="AnalisisCodigoModel.R2PBBitacora" />
+          <EntitySet Name="R2PBRepositorio" EntityType="AnalisisCodigoModel.R2PBRepositorio" />
+        </EntityContainer>
+        <EntityType Name="R2PBBitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSolucion" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Componente" Type="Int32" Nullable="false" />
+          <Property Name="InformacionExepcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="R2PBRepositorio">
+          <Key>
+            <PropertyRef Name="IdRepositorio" />
+          </Key>
+          <Property Name="IdRepositorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPaquete" Type="Int32" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+          <Property Name="Mes" Type="Int32" Nullable="false" />
+          <Property Name="Dia" Type="Int32" Nullable="false" />
+          <Property Name="Hora" Type="Int32" Nullable="false" />
+          <Property Name="Segundo" Type="Int32" Nullable="false" />
+          <Property Name="Minuto" Type="Int32" Nullable="false" />
+          <Property Name="FechaCompleta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NombreRepositorio" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="NombreAutorRepositorio" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="AutorCommit" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnalisisCodigoModelStoreContainer" CdmEntityContainer="AnalisisCodigoEntities">
+          <EntitySetMapping Name="R2PBClase">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBClase">
+              <MappingFragment StoreEntitySet="R2PBClase">
+                <ScalarProperty Name="LineaFinal" ColumnName="LineaFinal" />
+                <ScalarProperty Name="LineaComienzo" ColumnName="LineaComienzo" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="Visibilidad" ColumnName="Visibilidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="NameSpace" ColumnName="NameSpace" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBControl">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBControl">
+              <MappingFragment StoreEntitySet="R2PBControl">
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdControl" ColumnName="IdControl" />
+                <ScalarProperty Name="IdMetodo" ColumnName="IdMetodo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="LineaComienzo" ColumnName="LineaComienzo" />
+                <ScalarProperty Name="LineaFinal" ColumnName="LineaFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBHerencia">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBHerencia">
+              <MappingFragment StoreEntitySet="R2PBHerencia">
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdHerencia" ColumnName="IdHerencia" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="HerenciaDeclarada" ColumnName="HerenciaDeclarada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBMetodo">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBMetodo">
+              <MappingFragment StoreEntitySet="R2PBMetodo">
+                <ScalarProperty Name="LineaFinal" ColumnName="LineaFinal" />
+                <ScalarProperty Name="LineaComienzo" ColumnName="LineaComienzo" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdMetodo" ColumnName="IdMetodo" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="Visibilidad" ColumnName="Visibilidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Retorno" ColumnName="Retorno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBPaquete">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBPaquete">
+              <MappingFragment StoreEntitySet="R2PBPaquete">
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="NombrePaquete" ColumnName="NombrePaquete" />
+                <ScalarProperty Name="IdentificadorPaquete" ColumnName="IdentificadorPaquete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBParametro">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBParametro">
+              <MappingFragment StoreEntitySet="R2PBParametro">
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdParametro" ColumnName="IdParametro" />
+                <ScalarProperty Name="IdMetodo" ColumnName="IdMetodo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Estatico" ColumnName="Estatico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBParametroModificador">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBParametroModificador">
+              <MappingFragment StoreEntitySet="R2PBParametroModificador">
+                <ScalarProperty Name="IdModificador" ColumnName="IdModificador" />
+                <ScalarProperty Name="IdParametro" ColumnName="IdParametro" />
+                <ScalarProperty Name="Modificador" ColumnName="Modificador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBPropiedad">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBPropiedad">
+              <MappingFragment StoreEntitySet="R2PBPropiedad">
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="Visibilidad" ColumnName="Visibilidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Estatico" ColumnName="Estatico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBProyecto">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBProyecto">
+              <MappingFragment StoreEntitySet="R2PBProyecto">
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="NombreProyecto" ColumnName="NombreProyecto" />
+                <ScalarProperty Name="Lenguaje" ColumnName="Lenguaje" />
+                <ScalarProperty Name="IdentificadorProyecto" ColumnName="IdentificadorProyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBUsing">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBUsing">
+              <MappingFragment StoreEntitySet="R2PBUsing">
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+                <ScalarProperty Name="IdUsing" ColumnName="IdUsing" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="UsingDeclarado" ColumnName="UsingDeclarado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBBitacora">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBBitacora">
+              <MappingFragment StoreEntitySet="R2PBBitacora">
+                <ScalarProperty Name="InformacionExepcion" ColumnName="InformacionExepcion" />
+                <ScalarProperty Name="Componente" ColumnName="Componente" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="IdSolucion" ColumnName="IdSolucion" />
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="R2PBRepositorio">
+            <EntityTypeMapping TypeName="AnalisisCodigoModel.R2PBRepositorio">
+              <MappingFragment StoreEntitySet="R2PBRepositorio">
+                <ScalarProperty Name="AutorCommit" ColumnName="AutorCommit" />
+                <ScalarProperty Name="NombreAutorRepositorio" ColumnName="NombreAutorRepositorio" />
+                <ScalarProperty Name="NombreRepositorio" ColumnName="NombreRepositorio" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="FechaCompleta" ColumnName="FechaCompleta" />
+                <ScalarProperty Name="Minuto" ColumnName="Minuto" />
+                <ScalarProperty Name="Segundo" ColumnName="Segundo" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+                <ScalarProperty Name="IdRepositorio" ColumnName="IdRepositorio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1 @@
+﻿8<%@ ServiceHost Language="C#" Debug="true" Service="R2PB.AnalisisCodigo.BS.Bitacoras.Bitacoras" %>

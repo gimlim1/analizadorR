@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6D0DC3A-8CDE-4247-BB6C-1CA1B8896AE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>R2PB.AnalisisCodigo.DS</RootNamespace>
+    <AssemblyName>R2PB.AnalisisCodigo.DS</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalisisCodigo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalisisCodigo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisCodigo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnalisisCodigo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalisisCodigo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Bitacoras\Bitacoras.Registrador.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="R2PBBitacora.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBClase.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBControl.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBHerencia.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBMetodo.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBPaquete.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBParametro.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBParametroModificador.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBPropiedad.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBProyecto.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBRepositorio.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="R2PBUsing.cs">
+      <DependentUpon>AnalisisCodigo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositorios\Repositorios.Consultante.cs" />
+    <Compile Include="Repositorios\Repositorios.Registrador.cs" />
+    <Compile Include="SolucionesCodigoFuente\Soluciones.CodigoFuente.Registrador.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="AnalisisCodigo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AnalisisCodigo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AnalisisCodigo.edmx.diagram">
+      <DependentUpon>AnalisisCodigo.edmx</DependentUpon>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AnalisisCodigo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AnalisisCodigo.edmx</DependentUpon>
+      <LastGenOutput>AnalisisCodigo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AnalisisCodigo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AnalisisCodigo.edmx</DependentUpon>
+      <LastGenOutput>AnalisisCodigo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R2PB.AnalisisCodigo.BC\R2PB.AnalisisCodigo.BC.csproj">
+      <Project>{6B591477-7CC8-4082-8874-B06ECCCBBE39}</Project>
+      <Name>R2PB.AnalisisCodigo.BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R2PB.AnalisisCodigo.SI.Datos\R2PB.AnalisisCodigo.SI.Datos.csproj">
+      <Project>{f746b76c-9313-4d42-b6d7-2325fa8f1ce4}</Project>
+      <Name>R2PB.AnalisisCodigo.SI.Datos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Metodos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Metodos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC.Controles" />
+  <xs:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfMetodo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Metodo" nillable="true" type="tns:Metodo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetodo" nillable="true" type="tns:ArrayOfMetodo" />
+  <xs:complexType name="Metodo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Controles" nillable="true" type="tns:ArrayOfControl" />
+      <xs:element minOccurs="0" name="LineaComienzo" type="xs:int" />
+      <xs:element minOccurs="0" name="LineaFinal" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreMetodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parametros" nillable="true" type="tns:ArrayOfParametro" />
+      <xs:element minOccurs="0" name="Retorno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Visibilidad" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Metodo" nillable="true" type="tns:Metodo" />
+  <xs:complexType name="ArrayOfControl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Control" nillable="true" type="tns:Control" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfControl" nillable="true" type="tns:ArrayOfControl" />
+  <xs:complexType name="Control">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LineaComienzo" type="xs:int" />
+      <xs:element minOccurs="0" name="LineaFinal" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreSintaxis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtroControl" nillable="true" type="tns:Control" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC.Controles" minOccurs="0" name="TipoControl" type="q1:Tipo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Control" nillable="true" type="tns:Control" />
+  <xs:complexType name="ArrayOfParametro">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parametro" nillable="true" type="tns:Parametro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParametro" nillable="true" type="tns:ArrayOfParametro" />
+  <xs:complexType name="Parametro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EsStatico" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TieneMasModificadores" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parametro" nillable="true" type="tns:Parametro" />
+</xs:schema>

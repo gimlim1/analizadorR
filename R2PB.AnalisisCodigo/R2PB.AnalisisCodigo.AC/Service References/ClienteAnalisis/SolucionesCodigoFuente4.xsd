@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Paquetes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Paquetes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Proyectos" />
+  <xs:complexType name="Paquete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdSolucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombrePaquete" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Proyectos" minOccurs="0" name="Proyectos" nillable="true" type="q1:ArrayOfProyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Paquete" nillable="true" type="tns:Paquete" />
+</xs:schema>

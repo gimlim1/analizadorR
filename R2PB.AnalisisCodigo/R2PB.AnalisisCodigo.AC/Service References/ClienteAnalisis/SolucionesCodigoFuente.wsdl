@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SolucionesCodigoFuente" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ISolucionesCodigoFuente_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Paquetes" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Proyectos" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Clases" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Herencias" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Metodos" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC.Controles" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Propiedades" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.BC.Clases" />
+      <xsd:import schemaLocation="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/R2PB.AnalisisCodigo.SI.Datos.Usings" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISolucionesCodigoFuente_GuardeElPaquete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardeElPaquete" />
+  </wsdl:message>
+  <wsdl:message name="ISolucionesCodigoFuente_GuardeElPaquete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardeElPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISolucionesCodigoFuente">
+    <wsdl:operation name="GuardeElPaquete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISolucionesCodigoFuente/GuardeElPaquete" message="tns:ISolucionesCodigoFuente_GuardeElPaquete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISolucionesCodigoFuente/GuardeElPaqueteResponse" message="tns:ISolucionesCodigoFuente_GuardeElPaquete_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISolucionesCodigoFuente" type="tns:ISolucionesCodigoFuente">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GuardeElPaquete">
+      <soap:operation soapAction="http://tempuri.org/ISolucionesCodigoFuente/GuardeElPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_ISolucionesCodigoFuente" type="tns:ISolucionesCodigoFuente">
+    <wsp:PolicyReference URI="#NetTcpBinding_ISolucionesCodigoFuente_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GuardeElPaquete">
+      <soap12:operation soapAction="http://tempuri.org/ISolucionesCodigoFuente/GuardeElPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SolucionesCodigoFuente">
+    <wsdl:port name="BasicHttpBinding_ISolucionesCodigoFuente" binding="tns:BasicHttpBinding_ISolucionesCodigoFuente">
+      <soap:address location="http://localhost/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc" />
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_ISolucionesCodigoFuente" binding="tns:NetTcpBinding_ISolucionesCodigoFuente">
+      <soap12:address location="net.tcp://eclp0196.bdconsultores.local/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://eclp0196.bdconsultores.local/AnalisisCodigo/Servicios/SolucionesCodigoFuente.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Spn>host/ECLP0196.BDCONSULTORES.local</Spn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
